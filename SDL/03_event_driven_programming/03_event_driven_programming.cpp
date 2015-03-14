@@ -39,8 +39,8 @@ bool load_image(SDL_Surface *&image_surface)
 	return true;
 }
 
-bool show_image(SDL_Window *&window,
-	SDL_Surface *&screen_surface,
+bool show_image(SDL_Window *window,
+	SDL_Surface *screen_surface,
 	SDL_Surface *image_surface)
 {
 	int result = 0;
