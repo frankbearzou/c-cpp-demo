@@ -62,7 +62,7 @@ SDL_Surface* load_image(SDL_Window * window)
 	you can change window size if you want
 	program will repaint if window size changed.
 */
-bool show_image(SDL_Window *window,	SDL_Surface *image_surface)
+bool show_image(SDL_Window *window, SDL_Surface *image_surface)
 {
 	int result = 0;
 	SDL_Surface *screen_surface = nullptr;
