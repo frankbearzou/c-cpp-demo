@@ -37,7 +37,7 @@ SDL_Surface* load_image(string image_name)
 	if (image_surface == nullptr)
 	{
 		cout << "SDL_LoadBMP error. " << SDL_GetError() << endl;
-		return false;
+		return nullptr;
 	}
 
 	return image_surface;
@@ -154,8 +154,7 @@ int main(int argc, char *argv[])
 			{
 				is_running = false;
 			}
-
-			if (event.type == SDL_KEYDOWN)
+			else if (event.type == SDL_KEYDOWN)
 			{
 				switch (event.key.keysym.sym)
 				{
