@@ -18,7 +18,7 @@
 /*
  * 
  */
-int volatile counter = 0;
+int counter = 0;
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void* fn(void* param)
