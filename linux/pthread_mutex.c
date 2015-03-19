@@ -19,7 +19,7 @@
  * 
  */
 int counter = 0;
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t mutex; // = PTHREAD_MUTEX_INITIALIZER;
 
 void* fn(void* param)
 {
