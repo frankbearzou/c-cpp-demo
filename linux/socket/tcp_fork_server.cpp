@@ -58,6 +58,7 @@ int main(int argc, char** argv)
             {
                 recvlen = recv(connfd, (void *)&buf, sizeof(buf), 0);
                 write(STDOUT_FILENO, buf, recvlen);
+                cout << endl;
                 for (int i = 0; i < recvlen; ++i) {
                     buf[i] = toupper(buf[i]);
                 }
