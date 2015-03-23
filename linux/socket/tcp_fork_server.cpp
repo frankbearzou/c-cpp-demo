@@ -131,6 +131,10 @@ int main(int argc, char** argv)
             while (1)
             {
                 recvlen = recv(connfd, (void *)&buf, sizeof(buf), 0);
+                if (recvlen == 0) {
+                    cerr << "the other side is closed" << endl;
+                    break;
+                }
                 write(STDOUT_FILENO, buf, recvlen);
                 cout << endl;
                 for (int i = 0; i < recvlen; ++i) {
