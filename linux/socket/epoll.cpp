@@ -59,7 +59,7 @@ int main()
 	// epoll
 	int epfd;
 	epoll_event tempevent;
-	epoll_event epevent[65536];
+	epoll_event epevent[MAX_EVENTS];
 	//int maxevents = 0;
 	int nready = 0;
 
@@ -122,10 +122,10 @@ int main()
 					// show new connction information
 					char buf_addr[128] = { 0 };
 					cout << "welcome:"
-							<< inet_ntop(AF_INET, (void *)&connaddr.sin_addr.s_addr, buf_addr, connaddrlen)
-							<< ":"
-							<< ntohs(connaddr.sin_port)
-							<< endl;
+					<< inet_ntop(AF_INET, (void *)&connaddr.sin_addr.s_addr, buf_addr, connaddrlen)
+					<< ":"
+					<< ntohs(connaddr.sin_port)
+					<< endl;
 				}
 				else     // deal with old connection read
 				{
@@ -153,13 +153,13 @@ int main()
 						send(connfd, (void *)buf, strlen(buf), 0);
 					}
 				}  // end of deal with old connection read
-			}  // end of read events
+			}
 			else
 			{
 				cout << "events: " << epevent[i].events
 						<< "fd: " << epevent[i].data.fd
 						<< endl;
-			}
+			}  // end of read events
 		}   // end of deal with nready times events
 	}   // end of epoll loop
 
