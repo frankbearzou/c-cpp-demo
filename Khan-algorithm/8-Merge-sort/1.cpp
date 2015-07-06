@@ -1,3 +1,8 @@
+/*
+Merge sort
+https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
+*/
+
 #include <iostream>
 #include <memory>
 
