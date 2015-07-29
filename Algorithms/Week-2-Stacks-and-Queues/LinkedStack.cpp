@@ -66,7 +66,7 @@ private:
 	Node<T> *first;
 };
 
-int main1()
+int main()
 {
 	LinkedStack<int> sta;
 	cout << "is empty: " << sta.isEmpty() << endl;
