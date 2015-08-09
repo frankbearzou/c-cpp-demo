@@ -1,3 +1,6 @@
+/* In this multiprocess tcp server, read and write use two processess respectively.
+** In addition, pipe is used to communicate between parent process and child process.
+*/
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
