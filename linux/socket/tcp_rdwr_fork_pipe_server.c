@@ -151,13 +151,6 @@ int main()
                         exit(1);
                     }
 
-                    // this is another way to kill child process
-                    /*if (sigqueue(conn_pid, SIGRTMIN + 2, value) < 0)
-                    {
-                        perror("sigqueue error");
-                        exit(1);
-                    }*/
-
                     // let child konw parent closed
                     close(pipefd[1]);
                     if (close(connfd) < 0)
