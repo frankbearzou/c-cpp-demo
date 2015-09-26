@@ -3,6 +3,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <signal.h>
+#include <sys/wait.h>
 
 #include <stdlib.h>
 #include <iostream>
@@ -112,12 +114,22 @@ void do_service(int conn)
 	}
 }
 
+void handler(int sig)
+{
+	while (waitpid(-1, NULL, WNOHANG) > 0)
+	{
+		;
+	}
+}
+
 int main()
 {
 	int srv_fd;
 	sockaddr_in srv_addr;
 	int sock_opt_yes = 1;
 	pid_t pid;
+
+	signal(SIGCHLD, handler);
 
 	srv_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (srv_fd < 0)
