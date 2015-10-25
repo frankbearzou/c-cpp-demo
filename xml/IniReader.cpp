@@ -16,7 +16,7 @@ public:
 		read_ini(filename, pt);
 	}
 
-	string getValue(const string& key)
+	string getValue(const string& key) const
 	{
 		return pt.get<string>(key);
 	}
