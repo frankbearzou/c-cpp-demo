@@ -14,15 +14,23 @@ struct mymsgbuf {
     char mtext[100];    /* message data */
 };
 
-int main()
+int main(int argc, char* argv[])
 {
 	int msgid;
 	mymsgbuf buf;
 	
-	cout << "please input mq id you want to read:";
-	cin >> msgid;
 	
-	if (msgget(msgid, IPC_CREAT | 0666) < 0)
+	if (argc == 1)
+	{
+		cout << "please input mq id you want to read:";
+		cin >> msgid;
+	}
+	else if (argc == 2)
+	{
+		msgid = atoi(argv[1]);
+	}
+	
+	if (msgget(1234, 0) < 0)
 	{
 		perror("msgget");
 		exit(-1);
