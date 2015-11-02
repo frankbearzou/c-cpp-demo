@@ -19,18 +19,7 @@ int main(int argc, char* argv[])
 	int msgid;
 	mymsgbuf buf;
 	
-	
-	if (argc == 1)
-	{
-		cout << "please input mq id you want to read:";
-		cin >> msgid;
-	}
-	else if (argc == 2)
-	{
-		msgid = atoi(argv[1]);
-	}
-	
-	if (msgget(1234, 0) < 0)
+	if ((msgid = msgget(1234, 0)) < 0)
 	{
 		perror("msgget");
 		exit(-1);
