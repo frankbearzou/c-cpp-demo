@@ -24,7 +24,7 @@ int main()
     int msid;
     mymsgbuf buf;
     
-    msid = msgget(IPC_PRIVATE, IPC_CREAT | 0666);
+    msid = msgget(1234, IPC_CREAT | 0666);
     if (msid < 0)
     {
         perror("msgget");
@@ -41,7 +41,7 @@ int main()
         //fgets(buf.mtext, sizeof(buf.mtext), stdin);
         cin >> buf.mtext;
         
-        if ((msgsnd(msid, (void*)&buf, sizeof(buf.mtext), 0) < 0))
+        if ((msgsnd(msid, (void*)&buf, strlen(buf.mtext), 0) < 0))
         {
             if (errno == EINTR)
                 continue;
